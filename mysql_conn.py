@@ -25,10 +25,10 @@ def connect_to_mysql():
         )
     except mysql.connector.Error as err:
         if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-            print("Usuario o Password no válido")
+            logger.error("Usuario o Password no válido")
         elif err.errno == errorcode.ER_BAD_DB_ERROR:
-            print("La base de datos no existe.")
+            logger.error("La base de datos no existe.")
         else:
-            print(err)
+            logger.error(err)
     return None
 
